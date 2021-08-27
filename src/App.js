@@ -7,14 +7,20 @@ import Search from './Search'
 import './App.css'
 
 class BooksApp extends React.Component {
-
   render() {
+    const books = [{
+      id: '1',
+      title: 'hoefh',
+      author: 'dobykh'
+    }]
     return (
       <div>
         <Switch>
           <Route
             exact path='/'
-            component={Home}
+            render={() => (
+              <Home books={books} />
+            )}
           />
           <Route
             path='/search'

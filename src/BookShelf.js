@@ -5,10 +5,14 @@ const BookShelf = (props) => {
     return (
         <div>
             <div className="bookshelf">
-                <h2 className="bookshelf-title">Currently Reading</h2>
+                <h2 className="bookshelf-title">{props.title}</h2>
                 <div className="bookshelf-books">
                     <ol className="books-grid">
-                        <Book />
+                        {props.books.map((book) => (
+                            <li><Book book={book} /></li>
+                        ))
+
+                        }
                     </ol>
                 </div>
             </div>

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 import BookShelf from "./BookShelf";
 
@@ -9,13 +10,25 @@ const Home = (props) => {
                 <h1>MyReads</h1>
             </div>
             <div className="list-books-content">
-                <BookShelf />
+                <BookShelf
+                    title='Currently Reading'
+                    books={props.books}
+                />
+                <BookShelf
+                    title='Want To Read'
+                    books={props.books}
+                />
+                <BookShelf
+                    title='Read'
+                    books={props.books}
+                />
             </div>
             <div className="open-search">
-                <button onClick={() => this.setState({ showSearchPage: true })}>Add a book</button>
+                <Link to='/search'>
+                    <button>Add a book</button>
+                </Link>
             </div>
         </div>
-
     );
 }
 

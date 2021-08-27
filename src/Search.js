@@ -1,14 +1,18 @@
+import React, { Component } from 'react'
+
 import BookSelector from "./BookSelector"
+import GoToHome from "./GoToHome";
+import SearchBar from "./SearchBar";
+import SearchResult from "./SearchResult";
+import Book from './Book';
 
 const Search = (props) => {
     return (
         <div>
-            <GoToHome />
             <SearchBar />
+            <GoToHome />
             <SearchResult>
-                <Book>
-                    <BookSelector />
-                </Book>
+                <Book />
             </SearchResult>
         </div>
 

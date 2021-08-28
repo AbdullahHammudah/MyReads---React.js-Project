@@ -1,3 +1,4 @@
+import { checkPropTypes } from "prop-types";
 import React, { Component } from "react";
 import BookSelector from "./BookSelector";
 
@@ -6,7 +7,9 @@ const Book = (props) => {
         <div className="book">
             <div className="book-top">
                 <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${props.book.imageLinks.thumbnail})` }}></div>
-                <BookSelector />
+                <BookSelector 
+                    book = {props.book}
+                />
             </div>
             <div className="book-title">{props.book.title}</div>
             <div className="book-authors">{props.book.authors}</div>

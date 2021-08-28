@@ -1,10 +1,31 @@
 import React, { Component } from "react";
+import * as BooksAPI from './BooksAPI';
 
 class BookSelector extends Component {
+    state = {
+        selector:''
+    }
+
+    handelChange = (evt) =>{
+        const selector = evt.target.value;
+
+        this.setState({
+            selector:selector
+        })
+
+        BooksAPI.update(this.props.book, selector)
+
+    }
+
+
     render(){
+        console.log(this.state.selector)
         return (
             <div className="book-shelf-changer">
-                <select>
+                <select 
+                    value={this.state.selector}
+                    onChange={this.handelChange}
+                >
                     <option value="move" disabled>Move to...</option>
                     <option value="currentlyReading">Currently Reading</option>
                     <option value="wantToRead">Want to Read</option>

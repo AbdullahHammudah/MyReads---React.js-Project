@@ -1,25 +1,28 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
-// import * as BooksAPI from './BooksAPI'
-//import * as BookAPI from './BookAPI'
+import * as BooksAPI from './BooksAPI';
 import Home from './Home'
 import Search from './Search'
 import './App.css'
 
 class BooksApp extends React.Component {
+  state = {
+    books: []
+  }
+  componentDidMount() {
+    BooksAPI.getAll()
+      .then((books) => (console.log(books), this.setState({
+        books: books
+      })))
+  }
   render() {
-    const books = [{
-      id: '1',
-      title: 'hoefh',
-      author: 'dobykh'
-    }]
     return (
       <div>
         <Switch>
           <Route
             exact path='/'
             render={() => (
-              <Home books={books} />
+              <Home books={this.state.books} />
             )}
           />
           <Route

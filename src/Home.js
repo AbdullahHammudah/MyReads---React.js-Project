@@ -12,15 +12,21 @@ const Home = (props) => {
             <div className="list-books-content">
                 <BookShelf
                     title='Currently Reading'
-                    books={props.books}
+                    books={props.books.filter((book) => (
+                        book.shelf === 'currentlyReading'
+                    ))}
                 />
                 <BookShelf
                     title='Want To Read'
-                    books={props.books}
+                    books={props.books.filter((book) => (
+                        book.shelf === "wantToRead"
+                    ))}
                 />
                 <BookShelf
                     title='Read'
-                    books={props.books}
+                    books={props.books.filter((book) => (
+                        book.shelf === 'read'
+                    ))}
                 />
             </div>
             <div className="open-search">

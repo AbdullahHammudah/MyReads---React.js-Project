@@ -10,10 +10,7 @@ const Search = (props) => {
     return (
         <div>
             <SearchBar />
-            <GoToHome />
-            <SearchResult>
-                <Book />
-            </SearchResult>
+            <SearchResult books={props.books} />
         </div>
 
     );

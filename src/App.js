@@ -27,7 +27,9 @@ class BooksApp extends React.Component {
           />
           <Route
             path='/search'
-            component={Search}
+            render={() => (
+              <Search books={this.state.books} />
+            )}
           />
         </Switch>
       </div>

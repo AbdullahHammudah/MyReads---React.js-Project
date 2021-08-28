@@ -1,10 +1,13 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 const GoToHome = (props) => {
     return (
-        <div>
-            <button className="close-search" onClick={() => this.setState({ showSearchPage: false })}>Close</button>
-        </div>
+        <Link to='/'>
+            <div>
+                <button className="close-search">Close</button>
+            </div>
+        </Link>
     );
 }
 

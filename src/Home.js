@@ -12,18 +12,21 @@ const Home = (props) => {
             <div className="list-books-content">
                 <BookShelf
                     title='Currently Reading'
+                    updateTheShelf = {props.updateTheShelf}
                     books={props.books.filter((book) => (
                         book.shelf === 'currentlyReading'
                     ))}
                 />
                 <BookShelf
                     title='Want To Read'
+                    updateTheShelf = {props.updateTheShelf}
                     books={props.books.filter((book) => (
                         book.shelf === "wantToRead"
                     ))}
                 />
                 <BookShelf
                     title='Read'
+                    updateTheShelf = {props.updateTheShelf}
                     books={props.books.filter((book) => (
                         book.shelf === 'read'
                     ))}

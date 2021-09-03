@@ -2,16 +2,14 @@ import React, { Component } from "react";
 import * as BooksAPI from './BooksAPI';
 
 class BookSelector extends Component {
-    state = {
+    /*state = {
         selector:''
-    }
+    }*/
 
     handelChange = (evt) =>{
         const selector = evt.target.value;
 
-        this.setState({
-            selector:selector
-        })
+        this.props.updateTheShelf(this.props.book,selector)
 
         BooksAPI.update(this.props.book, selector)
 
@@ -19,11 +17,11 @@ class BookSelector extends Component {
 
 
     render(){
-        console.log(this.state.selector)
+        //console.log(this.state.selector)
         return (
             <div className="book-shelf-changer">
                 <select 
-                    value={this.state.selector}
+                    value={this.props.book.shelf}
                     onChange={this.handelChange}
                 >
                     <option value="move" disabled>Move to...</option>

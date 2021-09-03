@@ -4,6 +4,7 @@ import * as BooksAPI from './BooksAPI';
 import Home from './Home'
 import Search from './Search'
 import './App.css'
+import SearchBar from './SearchBar';
 
 class BooksApp extends React.Component {
   state = {
@@ -14,7 +15,27 @@ class BooksApp extends React.Component {
       .then((books) => (console.log(books), this.setState({
         books: books
       })))
+      
   }
+
+  /*updateTheShelf = (book,shelf)=>{
+    const newBooks= this.state.books.map((b)=>{
+      if(b === book){
+        b.shelf = shelf}
+
+        this.setState({books: newBooks})
+    })
+  }*/
+  updateTheShelf = (book,shelf)=>{
+    this.setState((state)=>{
+      state.books.map((b)=>{
+        if (b === book){
+          b.shelf = shelf 
+        }
+      })
+    })
+  }
+
   render() {
     return (
       <div>
@@ -22,13 +43,19 @@ class BooksApp extends React.Component {
           <Route
             exact path='/'
             render={() => (
-              <Home books={this.state.books} />
+              <Home 
+                books={this.state.books}
+                updateTheShelf={this.updateTheShelf}
+              />
             )}
           />
           <Route
             path='/search'
             render={() => (
-              <Search books={this.state.books} />
+              <SearchBar 
+                books={this.state.books}
+                updateTheShelf={this.updateTheShelf}
+              />
             )}
           />
         </Switch>

@@ -59,6 +59,7 @@ class SearchBar extends Component{
                     <SearchResult
                         query={this.state.query}
                         books={this.state.books}
+                        updateTheShelf={this.props.updateTheShelf}
                     />
                 </div>
             </div>

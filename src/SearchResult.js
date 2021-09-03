@@ -10,7 +10,10 @@ class SearchResult extends Component{
                 <ol className="books-grid">
                     {this.props.query && this.props.books.map((book) => (
                         <li key={book.id}>
-                            <Book book={book} />
+                            <Book 
+                                book={book}
+                                updateTheShelf={this.props.updateTheShelf}
+                            />
                         </li>
                     ))}
                 </ol>

@@ -38,7 +38,6 @@ class SearchBar extends Component{
         } else this.setState({ books: []});
       };
 
-
     render(){
         
         console.log(this.state.query)

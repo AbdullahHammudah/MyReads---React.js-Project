@@ -2,7 +2,6 @@ import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 import * as BooksAPI from './BooksAPI';
 import Home from './Home'
-import Search from './Search'
 import './App.css'
 import SearchBar from './SearchBar';
 
@@ -14,8 +13,7 @@ class BooksApp extends React.Component {
     BooksAPI.getAll()
       .then((books) => (console.log(books), this.setState({
         books: books
-      })))
-      
+      })))     
   }
 
   /*updateTheShelf = (book,shelf)=>{
@@ -27,13 +25,10 @@ class BooksApp extends React.Component {
     })
   }*/
   updateTheShelf = (book,shelf)=>{
-    this.setState((state)=>{
-      state.books.map((b)=>{
-        if (b === book){
-          b.shelf = shelf 
-        }
-      })
-    })
+    book.shelf = shelf
+    this.setState((prevState)=>({
+      books:prevState.books.filter(b=>b.id !== book.id).concat(book)
+    }))
   }
 
   render() {

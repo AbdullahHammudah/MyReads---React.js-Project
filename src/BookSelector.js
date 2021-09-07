@@ -2,10 +2,7 @@ import React, { Component } from "react";
 import * as BooksAPI from './BooksAPI';
 
 class BookSelector extends Component {
-    /*state = {
-        selector:''
-    }*/
-
+    
     handelChange = (evt) =>{
         const selector = evt.target.value;
 
@@ -15,12 +12,11 @@ class BookSelector extends Component {
 
     }
 
-
     render(){
-        //console.log(this.state.selector)
         return (
             <div className="book-shelf-changer">
                 <select 
+                    defaultValue={'none'}
                     value={this.props.book.shelf}
                     onChange={this.handelChange}
                 >

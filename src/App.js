@@ -50,6 +50,7 @@ class BooksApp extends React.Component {
               <SearchBar 
                 books={this.state.books}
                 updateTheShelf={this.updateTheShelf}
+                checkedBooks={this.state.books}
               />
             )}
           />

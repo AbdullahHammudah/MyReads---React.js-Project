@@ -38,8 +38,18 @@ class SearchBar extends Component{
         } else this.setState({ books: []});
       };
 
+    checkBooks = () =>{
+        this.state.books.map(searchedBook => {
+            this.props.checkedBooks.map(shelfBook=>{
+                if (searchedBook.id === shelfBook.id){
+                    searchedBook.shelf = shelfBook.shelf
+                }
+            })
+        })
+    }
+
     render(){
-        
+        this.checkBooks()
         console.log(this.state.query)
         return (
             <div>
